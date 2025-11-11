@@ -51,11 +51,6 @@ SELECT * FROM AUDITORIAS ORDER BY id;
 - `com.tecsup.demo.views`: clases de exportación PDF/Excel.
 - `src/main/resources/templates`: vistas Thymeleaf.
 
-## Evidencias sugeridas
-- Logs en consola mostrando auditorías.
-- Capturas de la consola H2 (`AUDITORIAS`).
-- Archivos PDF/XLS generados desde la UI.
-
 ## Autoría
 Proyecto de laboratorio desarrollado por **Ricardo Coello Palomino** (sección 5 - C24) con soporte de asistente IA en Cursor.
 
