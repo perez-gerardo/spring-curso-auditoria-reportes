@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head('Listado de Cursos')"></head>
+<body>
+<div th:replace="fragments/header :: navbar"></div>
+<main class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">Listado de Cursos</h2>
+        <div>
+            <a class="btn btn-success me-2" th:href="@{/form}">Crear curso</a>
+            <a class="btn btn-danger me-2" th:href="@{/listar(format='pdf')}">PDF</a>
+            <a class="btn btn-primary" th:href="@{/listar(format='xls')}">XLS</a>
+        </div>
+    </div>
+    <div class="table-responsive shadow-sm">
+        <table class="table table-hover table-bordered align-middle">
+            <thead class="table-success">
+            <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Créditos</th>
+                <th scope="col" class="text-center">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${cursos == null or #lists.isEmpty(cursos)}">
+                <td colspan="4" class="text-center">No existen cursos registrados.</td>
+            </tr>
+            <tr th:each="curso : ${cursos}">
+                <td th:text="${curso.codigo}">COD-001</td>
+                <td th:text="${curso.nombre}">Programación</td>
+                <td th:text="${curso.creditos}">4</td>
+                <td class="text-center">
+                    <a class="btn btn-warning btn-sm me-2" th:href="@{/editar/{id}(id=${curso.id})}">editar</a>
+                    <a class="btn btn-danger btn-sm" th:href="@{/eliminar/{id}(id=${curso.id})}"
+                       onclick="return confirm('¿Desea eliminar este curso?');">eliminar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+<div th:replace="fragments/header :: scripts"></div>
+</body>
+</html>
+

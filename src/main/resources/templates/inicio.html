@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head('Página de Inicio')"></head>
+<body>
+<div th:replace="fragments/header :: navbar"></div>
+<main class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h1 class="card-title text-success">Bienvenido</h1>
+                    <p class="card-text">
+                        Esta aplicación demuestra un CRUD básico de cursos construido con Spring Boot,
+                        Thymeleaf y H2. Utiliza Programación Orientada a Aspectos para auditar las
+                        operaciones principales y permite exportar la información en formatos PDF y Excel.
+                    </p>
+                    <a class="btn btn-success" th:href="@{/listar}">Ir al listado de cursos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:replace="fragments/header :: scripts"></div>
+</body>
+</html>
+
